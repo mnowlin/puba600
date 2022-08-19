@@ -1,0 +1,46 @@
+---
+title: "Foundations of Public Sector Management and Leadership"
+author: "PUBA 600" 
+date: "Fall 2022, Express I" 
+bibliography: /Users/nowlinmc/Dropbox/refs.bib
+output:
+  pdf_document:
+    template: syllabus-template.tex
+    fig_caption: yes
+csl: /Users/nowlinmc/Dropbox/Projects/Manuscript-Files/csl/american-political-science-association.csl
+
+instructor:
+- name: Dr. Matthew C. Nowlin, PhD
+  website: \href{https://www.matthewcnowlin.com/}{\underline{matthewcnowlin.com}}
+  email: \href{mailto:nowlinmc@cofc.edu}{\underline{nowlinmc@cofc.edu}}
+  officehours: \underline{By appointment}
+  instructor:
+
+# You can include multiple entries for a teaching assistant by filling in all these options below. Currently this is set to populate two columns on the syllabus but there is not an even column break inserted.
+
+# teachingassistant:
+#  - name: Filler
+#    email: filler@fill.com
+#    officehours: W T
+#    office: OfficeNumber
+#    sections: '301'
+   
+classroom: 'Riley Center, 206'
+classhours: 5:30pm - 8:15pm T
+# labroom: 'LCSB 337'
+# labhours: 1:25 pm - 3:55 pm	W
+# fontfamily: mathpazo
+# fontsize: 11pt
+# header-includes: \linespread{1.05}
+---
+
+```{r syllabus-body, child='syllabus-body.md'}
+```
+
+
+```{r syllabus-schedule, child='syllabus-schedule.md'}
+```
+
+
+```{r info, child='important-info.tex'}
+```

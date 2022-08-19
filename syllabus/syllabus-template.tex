@@ -1,0 +1,113 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue,
+            anchorcolor=blue]{hyperref}
+\usepackage{natbib}
+\usepackage{bibentry}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} 
+\usepackage{longtable,booktabs}
+\usepackage{multicol}
+\usepackage{datetime}
+\usepackage{advdate}
+\usepackage{fontawesome}
+\newdateformat{syldate}{\shortmonthname[{\THEMONTH}] \THEDAY}
+\newsavebox{\TUESDAY}\savebox{\TUESDAY}{Tue}% Tue
+
+\newcommand{\week}{%
+  \paragraph*{\syldate{\today}:}% Set heading \quad #1
+  \ifdim\wd1=\wd\TUESDAY
+  \AdvanceDate[7]
+  \else
+  \AdvanceDate[7]
+  \fi%
+}
+
+$if(csl-refs)$
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+$endif$
+
+$if(title)$
+\title{{\Large{\bf{$title$}}}$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(subtitle)$
+\providecommand{\subtitle}[1]{}
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{\textsc{$for(author)$$author$$sep$ \and $endfor$}}
+$endif$
+\date{\textsc{$date$}}
+
+\begin{document}  
+
+	$if(title)$
+	\maketitle
+	$endif$
+
+% \thispagestyle{firststyle}
+
+%	\thispagestyle{empty}
+\noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
+\textbf{\underline{Professor}}\\
+
+$for(instructor)$
+  \textbf{$instructor.name$}\\
+  \faExternalLink \hspace{0.005in} $instructor.website$\\
+  \faEnvelopeO \hspace{0.005in} $instructor.email$\\
+  \faCommentsO \hspace{0.005in} \textbf{Office hours:} $instructor.officehours$\\
+$endfor$
+  \\
+	\end{tabular*}\\
+	
+\noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
+\textbf{\underline{Class Information}}\\
+  \faBuildingO \hspace{0.005in} $classroom$\\
+  \faClockO \hspace{0.005in} $classhours$\\
+  $if(labroom)$
+  Lab room: $labroom$\\
+  Lab Hours: $labhours$\\
+  $endif$
+  \\
+	\end{tabular*}\\
+
+\setlength{\unitlength}{1in}
+\begin{picture}(6,.1) 
+\put(0,0) {\line(1,0){6.25}}
+\vspace{-1in}         
+\end{picture}
+
+$body$
+
+\end{document}
+
+
